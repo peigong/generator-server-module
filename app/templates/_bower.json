@@ -1,0 +1,23 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "description": "<%= name %> description.",
+  "authors": [
+    {
+      "name": "<%= realname %>",
+      "email": "<%= email %>",
+      "url": "<%= githubUrl %>"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "node-server": "~0.1.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

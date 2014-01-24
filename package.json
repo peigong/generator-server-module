@@ -1,0 +1,44 @@
+{
+  "name": "generator-server-module",
+  "version": "0.1.0",
+  "description": "A server-module generator for Yeoman",
+  "keywords": [
+    "yeoman-generator",
+    "node.js",
+    "server"
+  ],
+  "homepage": "https://github.com/toolkit-rack/generator-server-module",
+  "bugs": "https://github.com/toolkit-rack/generator-server-module/issues",
+  "author": {
+    "name": "周培公",
+    "email": "peigong@foxmail.com",
+    "url": "https://github.com/peigong"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/toolkit-rack/generator-server-module.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "github": "~0.1.8",
+    "yeoman-generator": "~0.14.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.14.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}
