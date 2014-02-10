@@ -12,7 +12,8 @@ module.exports = function(grunt) {
       server: {
         files: [ 
           { expand: true, cwd: "bower_components/node-server/lib", src: ['**'], dest: 'server' },
-          { expand: true, cwd: "lib", src: ['**'], dest: 'server/modules' }
+          { expand: true, cwd: "bower_components/node-server/lib/config", src: ['package.json'], dest: 'server' },
+          { expand: true, cwd: "lib", src: ['**'], dest: 'server' }
         ]
       }
     }

@@ -85,25 +85,22 @@ ServerModuleGenerator.prototype.userInfo = function userInfo() {
 };
 
 ServerModuleGenerator.prototype.app = function app() {
-  var base_dir = ['lib', this.name].join(path.sep);
+  var base_dir = ['lib', 'modules', this.name].join(path.sep);
   this.mkdir([base_dir, 'config'].join(path.sep));
   this.mkdir([base_dir, 'routes'].join(path.sep));
   this.mkdir([base_dir, 'middleware'].join(path.sep));
   this.mkdir([base_dir, 'lib', 'helpers'].join(path.sep));
   this.mkdir([base_dir, 'lib', 'models'].join(path.sep));
-  this.mkdir([base_dir, 'lib', 'routes'].join(path.sep));
-  this.mkdir([base_dir, 'lib', 'middleware'].join(path.sep));
+
+  this.mkdir(['lib', 'hooks', 'start'].join(path.sep));
 
   this.copy('_Gruntfile.js', 'Gruntfile.js');
-  this.template('_README.md', '_README.md');
-  this.template('_package.json', 'package.json');
+  this.template('_README.md', 'README.md');
   this.template('_bower.json', 'bower.json');
+
+  this.template('project.package.json', 'package.json');
+  this.template('module.package.json', [base_dir, 'package.json'].join(path.sep));
   this.template('route.js', [base_dir, 'routes', 'route.js'].join(path.sep));
 
   this.copy('middleware.js', [base_dir, 'middleware', 'middleware.js'].join(path.sep));
-};
-
-ServerModuleGenerator.prototype.projectfiles = function projectfiles() {
-  this.copy('editorconfig', '.editorconfig');
-  this.copy('jshintrc', '.jshintrc');
 };
