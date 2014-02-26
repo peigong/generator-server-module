@@ -94,6 +94,7 @@ ServerModuleGenerator.prototype.app = function app() {
 
   this.mkdir(['lib', 'hooks', 'start'].join(path.sep));
 
+  this.copy('_gitignore', '.gitignore');
   this.copy('_Gruntfile.js', 'Gruntfile.js');
   this.template('_README.md', 'README.md');
   this.template('_bower.json', 'bower.json');
