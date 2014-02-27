@@ -1,5 +1,5 @@
 module.exports = function (app) {
-    app.use(function (req, res, next) {
+    app.use('/<%= name %>', function (req, res, next) {
         res.removeHeader('X-Powered-By');
 
         res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
