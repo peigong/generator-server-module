@@ -85,14 +85,24 @@ ServerModuleGenerator.prototype.userInfo = function userInfo() {
 };
 
 ServerModuleGenerator.prototype.app = function app() {
-  var base_dir = ['lib', 'modules', this.name].join(path.sep);
-  this.mkdir([base_dir, 'config'].join(path.sep));
+  var base_dir = ['lib', 'modules', this.name].join(path.sep),
+    hooks_dir = ['lib', 'hooks', 'start'].join(path.sep),
+    config_dir = [base_dir, 'config'].join(path.sep),
+    helpers_dir = [base_dir, 'lib', 'helpers'].join(path.sep),
+    models_dir = [base_dir, 'lib', 'models'].join(path.sep);
+    
+  this.mkdir(hooks_dir);
+  this.mkdir(config_dir);
+  this.mkdir(helpers_dir);
+  this.mkdir(models_dir);
   this.mkdir([base_dir, 'routes'].join(path.sep));
   this.mkdir([base_dir, 'middleware'].join(path.sep));
-  this.mkdir([base_dir, 'lib', 'helpers'].join(path.sep));
-  this.mkdir([base_dir, 'lib', 'models'].join(path.sep));
 
-  this.mkdir(['lib', 'hooks', 'start'].join(path.sep));
+
+  this.copy('_gitkeep', [hooks_dir, '.gitkeep'].join(path.sep));
+  this.copy('_gitkeep', [config_dir, '.gitkeep'].join(path.sep));
+  this.copy('_gitkeep', [helpers_dir, '.gitkeep'].join(path.sep));
+  this.copy('_gitkeep', [models_dir, '.gitkeep'].join(path.sep));
 
   this.copy('_gitignore', '.gitignore');
   this.copy('_Gruntfile.js', 'Gruntfile.js');
