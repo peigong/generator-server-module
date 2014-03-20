@@ -89,7 +89,9 @@ ServerModuleGenerator.prototype.app = function app() {
     hooks_dir = ['lib', 'hooks', 'start'].join(path.sep),
     config_dir = [base_dir, 'config'].join(path.sep),
     helpers_dir = [base_dir, 'lib', 'helpers'].join(path.sep),
-    models_dir = [base_dir, 'lib', 'models'].join(path.sep);
+    models_dir = [base_dir, 'lib', 'models'].join(path.sep),
+    bin_dir = ['src', 'bin'].join(path.sep),
+    conf_dir = ['src', 'config'].join(path.sep);
     
   this.mkdir(hooks_dir);
   this.mkdir(config_dir);
@@ -97,7 +99,8 @@ ServerModuleGenerator.prototype.app = function app() {
   this.mkdir(models_dir);
   this.mkdir([base_dir, 'routes'].join(path.sep));
   this.mkdir([base_dir, 'middleware'].join(path.sep));
-
+  this.mkdir(bin_dir);
+  this.mkdir(conf_dir);
 
   this.copy('_gitkeep', [hooks_dir, '.gitkeep'].join(path.sep));
   this.copy('_gitkeep', [config_dir, '.gitkeep'].join(path.sep));
@@ -108,6 +111,10 @@ ServerModuleGenerator.prototype.app = function app() {
   this.copy('_Gruntfile.js', 'Gruntfile.js');
   this.template('_README.md', 'README.md');
   this.template('_bower.json', 'bower.json');
+  this.template('_begin.cmd', [bin_dir, 'begin.cmd'].join(path.sep));
+  this.copy('_start.cmd', [bin_dir, 'start.cmd'].join(path.sep));
+  this.template('_end.cmd', [bin_dir, 'end.cmd'].join(path.sep));
+  this.template('_stub.json', [conf_dir, 'stub.json'].join(path.sep));
 
   this.template('project.package.json', 'package.json');
   this.template('module.package.json', [base_dir, 'package.json'].join(path.sep));
