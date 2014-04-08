@@ -107,6 +107,7 @@ ServerModuleGenerator.prototype.app = function app() {
   this.copy('_gitkeep', [helpers_dir, '.gitkeep'].join(path.sep));
   this.copy('_gitkeep', [models_dir, '.gitkeep'].join(path.sep));
 
+  this.copy('_run.cmd', 'run.cmd');
   this.copy('_gitignore', '.gitignore');
   this.copy('_Gruntfile.js', 'Gruntfile.js');
   this.template('_README.md', 'README.md');
