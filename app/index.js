@@ -107,19 +107,18 @@ ServerModuleGenerator.prototype.app = function app() {
   this.copy('_gitkeep', [helpers_dir, '.gitkeep'].join(path.sep));
   this.copy('_gitkeep', [models_dir, '.gitkeep'].join(path.sep));
 
-  this.copy('_run.cmd', 'run.cmd');
   this.copy('_gitignore', '.gitignore');
-  this.copy('_Gruntfile.js', 'Gruntfile.js');
-  this.template('_README.md', 'README.md');
-  this.template('_bower.json', 'bower.json');
-  this.template('_begin.cmd', [bin_dir, 'begin.cmd'].join(path.sep));
-  this.copy('_start.cmd', [bin_dir, 'start.cmd'].join(path.sep));
-  this.template('_end.cmd', [bin_dir, 'end.cmd'].join(path.sep));
-  this.template('_stub.json', [conf_dir, 'stub.json'].join(path.sep));
+  this.copy('Gruntfile.js', 'Gruntfile.js');
+  this.template('README.md', 'README.md');
+  this.template('bower.json', 'bower.json');
+
+  this.template('stub.json', [conf_dir, 'stub.json'].join(path.sep));
+  this.template('pro.json', [conf_dir, 'pro.json'].join(path.sep));
+  this.copy('node-server.cmd', [bin_dir, 'node-server.cmd'].join(path.sep));
+  this.copy('node-server.sh', [bin_dir, 'node-server.sh'].join(path.sep));
 
   this.template('project.package.json', 'package.json');
   this.template('module.package.json', [base_dir, 'package.json'].join(path.sep));
   this.template('route.js', [base_dir, 'routes', 'route.js'].join(path.sep));
-
   this.copy('middleware.js', [base_dir, 'middleware', 'middleware.js'].join(path.sep));
 };

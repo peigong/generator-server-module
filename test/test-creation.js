@@ -22,12 +22,17 @@ describe('server-module generator', function () {
     it('creates expected files', function (done) {
         var expected = [
             // add files you expect to exist here.
-            '.jshintrc',
-            '.editorconfig'
+            '.gitignore',
+            'package.json',
+            'Gruntfile.js',
+            'bower.json',
+            'README.md'
         ];
 
         helpers.mockPrompt(this.app, {
-            'someOption': true
+            'name': 'sample',
+            'version': '0.0.0',
+            'githubUser': 'peigong'
         });
         this.app.options['skip-install'] = true;
         this.app.run({}, function () {
