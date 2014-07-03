@@ -25,7 +25,6 @@ start(){
         cd ../server
         npm install
         node ./bin/create-package.js
-        npm install
         npm update
         cd ../bin
         nohup node ../server/bin/run-server.js -m pro > /dev/null &
