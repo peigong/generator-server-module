@@ -116,6 +116,7 @@ ServerModuleGenerator.prototype.app = function app() {
   this.template('pro.json', [conf_dir, 'pro.json'].join(path.sep));
   this.copy('node-server.cmd', [bin_dir, 'node-server.cmd'].join(path.sep));
   this.copy('node-server.sh', [bin_dir, 'node-server.sh'].join(path.sep));
+  this.copy('server-install.sh', [bin_dir, 'server-install.sh'].join(path.sep));
 
   this.template('project.package.json', 'package.json');
   this.template('module.package.json', [base_dir, 'package.json'].join(path.sep));

@@ -4,4 +4,4 @@ call npm.cmd install
 node ./bin/create-package.js
 call npm.cmd update
 cd ../bin
-node ../server/bin/run-server.js -m stub
+node ../server/bin/run-server.js -m dev -c ../config

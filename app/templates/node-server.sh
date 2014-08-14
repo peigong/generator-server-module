@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ACTION=$1
-PIDFILE="../server.pid"
+PIDFILE="../../../../server.pid"
 
 #help
 usage(){
@@ -22,12 +22,7 @@ start(){
     if [ ! -z $pid ]; then
         echo 'server is already running'
     else
-        cd ../server
-        npm install
-        node ./bin/create-package.js
-        npm update
-        cd ../bin
-        nohup node ../server/bin/run-server.js -m pro > /dev/null &
+        nohup node ../server/bin/run-server.js -m pro -c ../../config > /dev/null &
         echo 'server is running ...'
         echo $! > $PIDFILE
         echo 'server is run!'
