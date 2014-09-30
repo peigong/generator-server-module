@@ -99,6 +99,7 @@ ServerModuleGenerator.prototype.app = function app() {
   this.mkdir(models_dir);
   this.mkdir([base_dir, 'routes'].join(path.sep));
   this.mkdir([base_dir, 'middleware'].join(path.sep));
+  this.mkdir([base_dir, 'attachments'].join(path.sep));
   this.mkdir(bin_dir);
   this.mkdir(conf_dir);
 
